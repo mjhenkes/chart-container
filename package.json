@@ -1,18 +1,18 @@
 {
-  "name": "terra-model-repo",
+  "name": "chart-container",
   "version": "1.0.0",
   "description": "A model repo for how terra applications should look",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mjhenkes/terra-model-repo.git"
+    "url": "git+https://github.com/mjhenkes/chart-container.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mjhenkes/terra-model-repo/issues"
+    "url": "https://github.com/mjhenkes/chart-container/issues"
   },
-  "homepage": "https://github.com/mjhenkes/terra-model-repo#readme",
+  "homepage": "https://github.com/mjhenkes/chart-container#readme",
   "eslintConfig": {
     "extends": "@cerner/terra"
   },

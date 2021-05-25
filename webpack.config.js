@@ -1,13 +1,8 @@
 const defaultWebpackConfig = require('@cerner/webpack-config-terra');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { DefinePlugin } = require('webpack');
 const { merge } = require('webpack-merge');
 const { ModuleFederationPlugin } = require('webpack').container;
 
-const terraApplicationConfig = (env = {}) => ({
-  entry: {
-    index: './src/index.jsx',
-  },
+const terraApplicationConfig = () => ({
   output: {
     publicPath: 'auto',
   },
@@ -48,15 +43,6 @@ const terraApplicationConfig = (env = {}) => ({
           requiredVersion: '^5.0.0',
         },
       },
-    }),
-    new HtmlWebpackPlugin({
-      lang: env.defaultLocale || 'en',
-      filename: 'index.html',
-      template: './src/template/index.html',
-      rootElementId: 'root',
-    }),
-    new DefinePlugin({
-      TERRA_APPLICATION_LOCALE: JSON.stringify(env.defaultLocale || 'en'),
     }),
   ],
 });

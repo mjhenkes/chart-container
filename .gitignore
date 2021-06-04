@@ -129,3 +129,5 @@ stats.json
 
 # webpack build directory
 build
+
+lib

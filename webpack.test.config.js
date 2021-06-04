@@ -1,8 +1,14 @@
 const defaultWebpackConfig = require('@cerner/webpack-config-terra');
 const { merge } = require('webpack-merge');
 const { ModuleFederationPlugin } = require('webpack').container;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
-const terraApplicationConfig = () => ({
+const terraApplicationConfig = (env = {}) => ({
+  entry: {
+    index: './test-harness/index.jsx',
+  },
   output: {
     publicPath: 'auto',
   },
@@ -43,6 +49,20 @@ const terraApplicationConfig = () => ({
           requiredVersion: '^5.0.0',
         },
       },
+    }),
+    new HtmlWebpackPlugin({
+      lang: env.defaultLocale || 'en',
+      filename: 'index.html',
+      template: './test-harness/index.html',
+      rootElementId: 'root',
+    }),
+    new DefinePlugin({
+      TERRA_APPLICATION_LOCALE: JSON.stringify(env.defaultLocale || 'en'),
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'test-harness/AppConfig.json', to: 'config/AppConfig.json' },
+      ],
     }),
   ],
 });

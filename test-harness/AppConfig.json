@@ -1,0 +1,83 @@
+{
+  "applications": {
+    "test-application": {
+      "id": "test-application",
+      "title": "Test Application",
+      "version": "0.0.1",
+      "route": "chart",
+      "requiresPatientContext": true,
+      "modules": {
+        "pages": [
+          {
+            "navigationKey": "chart-review",
+            "label": "Chart Review",
+            "moduleKey": "ChartReview"
+          }, {
+              "navigationKey": "handoff",
+              "label": "Handoff",
+              "moduleKey": "Handoff"
+          }, {
+            "navigationKey": "active-orders",
+            "label": "Active Orders",
+            "moduleKey": "ActiveOrders"
+          }, {
+            "navigationKey": "inactive-orders",
+            "label": "Inactive Orders",
+            "moduleKey": "InactiveOrders"
+          }, {
+            "navigationKey": "note-templates",
+            "label": "Note Templates",
+            "moduleKey": "NoteTemplates"
+          }, {
+            "navigationKey": "in-progress-notes",
+            "label": "In Progress Notes",
+            "moduleKey": "InProgressNotes"
+          }
+        ]
+      }
+    }
+  },
+  "modules": {
+    "pages": {
+      "ChartReview": {
+        "url": "/remoteEntry.js",
+        "scope": "chart",
+        "module": "./ChartReview"
+      },
+      "Handoff": {
+        "url": "/remoteEntry.js",
+        "scope": "chart",
+        "module": "./Handoff"
+      },
+      "ActiveOrders": {
+        "url": "/remoteEntry.js",
+        "scope": "chart",
+        "module": "./ActiveOrders"
+      },
+      "InactiveOrders": {
+        "url": "/remoteEntry.js",
+        "scope": "chart",
+        "module": "./InactiveOrders"
+      },
+      "NoteTemplates": {
+        "url": "/remoteEntry.js",
+        "scope": "chart",
+        "module": "./NoteTemplates"
+      },
+      "InProgressNotes": {
+        "url": "/remoteEntry.js",
+        "scope": "chart",
+        "module": "./InProgressNotes"
+      }
+    },
+    "workspaceItems": {
+
+    },
+    "extensions": {
+
+    },
+    "workflowSummaryItems": {
+
+    }
+  }
+}
